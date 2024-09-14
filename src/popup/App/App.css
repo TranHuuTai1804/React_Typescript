@@ -8,47 +8,38 @@ a {
 
 body {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-    margin: 0; 
-    background-color: #f0f0f0; 
-    transition: background-color 0.5s ease; /* Thêm chuyển tiếp cho nền */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    transition: background-color 0.5s ease;
 }
 
-body.background {
-    background-color: #555454;
-}
-
+/* Đảm bảo #body được hiển thị từ đầu */
 #body {
-    display: none;
-    transition: opacity 0.5s ease;
-    opacity: 0;
-}
-
-#body.show {
     display: block;
+    transition: opacity 0.5s ease;
     opacity: 1;
 }
 
+#body.hide {
+    display: none;
+    /* Ẩn #body khi có class 'hide' */
+}
+
 #productiv {
-    background-color: white; 
+    background-color: white;
     padding: 20px;
-    border-radius: 15px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
-    width: auto; 
-    min-width: 300px; /* Đặt chiều rộng tối thiểu nếu cần */
-    text-align: center; 
-    position: relative; 
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: auto;
+    min-width: 300px;
+    text-align: center;
+    position: relative;
 }
 
-.pro-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.pro-head h1 {
+#productiv h1 {
     margin-top: 0;
     margin-bottom: 0;
     color: #2a7bfe;
@@ -66,8 +57,8 @@ body.background {
 }
 
 #details {
-    position: relative; 
     margin-top: 20px;
+    position: relative;
 }
 
 .tasks {
@@ -80,9 +71,9 @@ body.background {
     margin-bottom: 15px;
     border: 3px solid #787575;
     border-radius: 15px;
-    width: 350px; 
+    width: 350px;
     padding: 5px 10px;
-    background-color: #fff; 
+    background-color: #fff;
 }
 
 .task:hover {
@@ -102,13 +93,13 @@ body.background {
 .task .content {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     text-align: left;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .content-header {
-    margin-bottom: 0; 
+    margin-bottom: 0;
     font-size: 14px;
     color: #bcb9b9;
 }
@@ -129,18 +120,26 @@ body.background {
     color: #000;
 }
 
-.features {
-    margin-top: 40px;   
+.features-container {
+    margin-top: 30px;
+    position: relative;
 }
 
-.features::after {
+.features-line {
     content: " ";
     position: absolute;
     height: 2px;
     width: 100%;
-    bottom: 148px;
-    right: 0;
+    top: 0;
+    /* Đặt đường thẳng ở trên cùng của phần tử .features-container */
+    left: 0;
     background: #ece7e7;
+}
+
+.features {
+    position: relative;
+    padding-top: 10px;
+    /* Khoảng cách giữa đường thẳng và các phần tử .feature */
 }
 
 .feature {
@@ -172,20 +171,20 @@ body.background {
     }
 
     .task {
-        flex-direction: row; 
+        flex-direction: row;
         align-items: center;
-        max-width: 100%; 
+        max-width: 100%;
     }
 
     .task .icon {
-        margin-right: 15px; 
+        margin-right: 15px;
     }
 
     .task .content {
         text-align: left;
     }
 
-    .features {
+    .features-container {
         margin-top: 20px;
     }
 }
@@ -196,7 +195,7 @@ body.background {
     }
 
     .task {
-        width: 100%; /* Make tasks responsive */
+        width: 100%;
     }
 
     .task .icon {
@@ -215,6 +214,7 @@ body.background {
     .fea-desc {
         font-size: 12px;
     }
+
 
     .fea-icon {
         width: 16px;
