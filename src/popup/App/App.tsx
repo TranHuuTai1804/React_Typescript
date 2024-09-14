@@ -17,11 +17,23 @@ const App: React.FC = () => {
     const handleClickOutside = (event: MouseEvent) => {
       const bodyElement = document.getElementById('body');
       const buttonElement = document.getElementById('button');
-  
+
       if (bodyElement && buttonElement && !bodyElement.contains(event.target as Node) && event.target !== buttonElement) {
         bodyElement.classList.add('hide');
         bodyElement.classList.remove('show');
         buttonElement.style.display = 'block'; // Gán giá trị cho thuộc tính display
+        document.body.classList.remove('background');
+      }
+    };
+
+      const handleCloseClick = () => {
+        const bodyElement = document.getElementById('body');
+        const buttonElement = document.getElementById('button');
+
+      if (bodyElement && buttonElement) {
+        bodyElement.classList.add('hide');
+        bodyElement.classList.remove('show');
+        buttonElement.style.display = 'block'; // Hiện lại nút button
         document.body.classList.remove('background');
       }
     };
@@ -38,7 +50,10 @@ const App: React.FC = () => {
       <button id="button" onClick={handleClick}>Productiv</button>
       <div id="body" className="hide">
         <section id="productiv">
-          <h1>Producttiv.</h1>
+          <div className="pro-head">
+            <h1>Producttiv.</h1>
+            <img onClick={handleCloseClick} src="./icons/close.png" alt="" id='close'/>
+          </div>
           <div id="details">
             <div className="tasks">
               {/* Task 1 */}

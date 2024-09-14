@@ -42,10 +42,27 @@ body.background {
     position: relative; 
 }
 
-#productiv h1 {
+.pro-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pro-head h1 {
     margin-top: 0;
+    margin-bottom: 0;
     color: #2a7bfe;
     text-align: left;
+}
+
+.pro-head img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.pro-head img:hover {
+    cursor: pointer;
 }
 
 #details {
@@ -79,6 +96,7 @@ body.background {
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit: cover;
 }
 
 .task .content {
@@ -145,6 +163,7 @@ body.background {
     width: 20px;
     height: 20px;
     margin-right: 20px;
+    object-fit: cover;
 }
 
 @media (max-width: 768px) {
